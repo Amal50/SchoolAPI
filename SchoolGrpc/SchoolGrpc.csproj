@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Protos\Courses.proto" />
+    <None Remove="Protos\Enrollment.proto" />
+    <None Remove="Protos\students.proto" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Grpc.AspNetCore" Version="2.27.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SchoolAPI\SchoolAPI.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Include="Protos\Courses.proto" GrpcServices="Server" />
+    <Protobuf Include="Protos\Enrollment.proto" GrpcServices="Server" />
+    <Protobuf Include="Protos\students.proto" GrpcServices="Server" />
+  </ItemGroup>
+
+</Project>

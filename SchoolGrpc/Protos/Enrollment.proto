@@ -1,0 +1,30 @@
+syntax = "proto3";
+import "google/protobuf/empty.proto"; 
+option csharp_namespace = "SchoolGrpc.Protos";
+
+service Enrollments{
+	rpc GetEnrollments(google.protobuf.Empty) returns (EnrollmentsList);
+	rpc GetEnrollment(RequestId) returns (EnrollmentReply);
+	rpc CreateEnrollment(CreateRequest) returns (google.protobuf.Empty);
+	rpc DeleteEnrollment(RequestId) returns (google.protobuf.Empty);
+}
+message EnrollmentsList{
+ repeated EnrollmentReply reply = 1;
+}
+message EnrollmentReply{
+	int32 Id =  1;
+	int32 StudentId =  2;
+	int32 CourseId =  3;
+}
+
+message CreateRequest{
+	int32 Id =  1;
+	int32 StudentId =  2;
+	int32 CourseId =  3;
+}
+message RequestId{
+	int32 Id =  1;
+}
+
+
+//	Assign, remove and read students that are enrolled in a course
