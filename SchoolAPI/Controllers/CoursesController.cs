@@ -23,6 +23,11 @@ namespace SchoolAPI.Controllers
         {
             return _context.Courses.ToList();
         }
+        [HttpGet("{id}")]
+        public IActionResult GetCourses(int id)
+        {
+            return Ok(_context.Courses.FirstOrDefault(c => c.Id == id));
+        }
         [HttpPost]
         public IActionResult PostCourse([FromBody] Courses course)
         {
