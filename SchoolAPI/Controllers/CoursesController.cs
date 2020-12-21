@@ -15,6 +15,7 @@ namespace SchoolAPI.Controllers
         ApplicationDbContext _context;
         public CoursesController()
         {
+            //test
             _context = new ApplicationDbContext();
         }
 
